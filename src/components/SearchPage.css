@@ -1,0 +1,58 @@
+.searchpage {
+    background-image: url("/public/icons/-background.webp");
+    min-height: 40vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    padding: 20px;
+}
+
+.search {
+    background: #00000086;
+    padding:30px 10px;
+    border-radius: 20px;
+}
+
+.search-form {
+    position: sticky;
+    top:60px;
+    margin: 30px auto 10px ;
+    background: white;
+    padding: 5px;
+    height: 35px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.search-form input {
+    height: 35px;
+    width: 90%;
+    font-size: 16px;
+    outline: none;
+    border: none;
+    background: transparent;
+
+}
+
+.search-form img {
+    height: 24px;
+    filter: invert(68%) sepia(1%) saturate(244%) hue-rotate(202deg) brightness(86%) contrast(94%);
+}
+
+.search-form button {
+    background: transparent;
+    border: none;
+    outline: none;
+}
+
+#cancel {
+    height: 18px;
+}
