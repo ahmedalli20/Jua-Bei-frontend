@@ -20,7 +20,33 @@ function App() {
 
   
 
-  
+  function handleSearch(e) {
+    e.preventDefault()
+    setLoading(true)
+
+    fetch("", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer " + token
+        },
+        body: JSON.stringify({
+            "search_term": search
+        })
+    })
+        .then(res => {
+            if (res.ok) {
+                res.json().then(products=>{
+                    setProducts(products)
+                    setLoading(false)
+                    setSearchFor(search)
+                    setSearch("")
+                })
+            } else {
+                console.log(res)
+            }
+        })
+}
   return (
     <div className="App">
     <Routes>
