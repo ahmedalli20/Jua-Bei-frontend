@@ -1,10 +1,12 @@
 import React from 'react';
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
-import {  useState } from 'react';
+import {  useState,useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import SearchPage from './components/SearchPage';
+import Footer from './components/Footer';
+import Products from './components/Products';
 import Login from "./components/Login";
 import Registration from "./components/Registration";
 
@@ -30,7 +32,7 @@ function App() {
     e.preventDefault()
     setLoading(true)
 
-    fetch("", {
+    fetch("http://localhost:3000/search", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -53,9 +55,52 @@ function App() {
             }
         })
 }
+
+useEffect((() => {
+
+    let t=localStorage.getItem("jwt")
+
+// fetch("http://localhost:3000/profile", {
+//     method: "GET",
+//     headers: {
+//       "Authorization": "Bearer " + t
+//     }
+//   })
+//     .then(res => {
+//       if (res.ok) {
+//         res.json().then(setUser)
+//       } else {
+//         res.json().then(console.log)
+//       }
+//     })
+}), [token])
+
+
+
   return (
     <div className="App">
          <Routes>
+
+
+   <Route exact path='/' element={
+    <div>
+    <Navbar user={user} handleSearch={handleSearch} search={search} setSearch={setSearch} searchFor={searchFor}/>
+    {search || searchFor?null:<SearchPage handleSearch={handleSearch} search={search} setSearch={setSearch} />}
+     {products ? <Products setSearchFor={setSearchFor} searchFor={searchFor} products={products} setProducts={setProducts} user={user} token={token}/> : null} 
+    <Home />
+    <Footer />
+    </div>
+   }> </Route>
+    <Route path='/home' element={
+    <Home />
+   
+  }>
+
+  </Route>
+ 
+   </Routes>
+   
+    </div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
 
         <Route exact path='/' element={
             <div>
@@ -81,6 +126,7 @@ function App() {
         </Routes>
     
     </div>
+
   );
 }
 
