@@ -5,7 +5,8 @@ import {  useState } from 'react';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import SearchPage from './components/SearchPage';
-
+import Footer from './components/Footer';
+import Products from './components/Products';
 
 
 function App() {
@@ -55,7 +56,8 @@ function App() {
     <div>
     <Navbar user={user} handleSearch={handleSearch} search={search} setSearch={setSearch} searchFor={searchFor}/>
     {search || searchFor?null:<SearchPage handleSearch={handleSearch} search={search} setSearch={setSearch} />}
-
+    {products ? <Products setSearchFor={setSearchFor} searchFor={searchFor} products={products} setProducts={setProducts} user={user} token={token}/> : null}
+    <Footer />
     </div>
    }> </Route>
     <Route path='home' element={
