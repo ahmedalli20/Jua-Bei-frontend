@@ -91,7 +91,7 @@ useEffect((() => {
     <Footer />
     </div>
    }> </Route>
-    <Route path='/home' element={
+     <Route path='/home' element={
     <Home />
    
   }>
