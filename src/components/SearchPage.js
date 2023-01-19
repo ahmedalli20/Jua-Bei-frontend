@@ -6,7 +6,7 @@ const SearchPage = ({handleSearch,search,setSearch}) => {
         <div className="searchpage">
             <div className='search'>
                 <div>
-                    <div></div>
+                    <div><p>search and compare the price</p></div>
                 </div>
                 <form onSubmit={handleSearch} className='search-form' type="submit">
                     <button><img  id='search' src="../icons/search .svg" /></button>
