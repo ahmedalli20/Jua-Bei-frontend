@@ -32,7 +32,7 @@ function App() {
     e.preventDefault()
     setLoading(true)
 
-    fetch("http://localhost:3000/search", {
+    fetch("https://jua-bei.onrender.com/search", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -60,7 +60,7 @@ useEffect((() => {
 
     let t=localStorage.getItem("jwt")
 
-// fetch("http://localhost:3000/profile", {
+// fetch("https://jua-bei.onrender.com/profile", {
 //     method: "GET",
 //     headers: {
 //       "Authorization": "Bearer " + t
@@ -97,35 +97,9 @@ useEffect((() => {
   }>
 
   </Route>
- 
    </Routes>
    
-    </div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
-
-        <Route exact path='/' element={
-            <div>
-            <Navbar user={user} handleSearch={handleSearch} search={search} setSearch={setSearch} searchFor={searchFor}/>
-            {search || searchFor?null:<SearchPage handleSearch={handleSearch} search={search} setSearch={setSearch} />}
-
-            </div>
-        }> </Route>
-            <Route path='home' element={
-            <Home />
-        }>
-
-        </Route>
-
-        <Route path='Login' element={
-           <>
-            {
-                currentForm === "login"? <Login onFormSwitch={toggleForm} /> : <Registration onFormSwitch={toggleForm}/>
-             } 
-           </> 
-        }>      
-        </Route>
-        </Routes>
-    
-    </div>
+   </div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
 
   );
 }

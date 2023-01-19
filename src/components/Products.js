@@ -32,7 +32,7 @@ const Products = ({ products, searchFor, setSearchFor, setProducts, token, user 
 
     useEffect((() => {
         if (user) {
-            fetch("http://localhost:3000/history", {
+            fetch("https://jua-bei.onrender.com/history", {
                 method: "GET",
                 headers: {
                     "Authorization": `Bearer ${token}`
