@@ -1,27 +1,64 @@
 import React, {useState} from 'react'
+import { useNavigate } from "react-router-dom";
 import "./Login.css"
+
 
 function Registration(props) {
 
     const [email, setEmail]=useState("")
-    const [pass, setPass]=useState("")
-    const [name, setName]=useState("")
-
+    const [password, setPassword]=useState("")
+    const [username, setUsername]=useState("")
+    const navigate = useNavigate();
+   
 
     const handleSubmit=(e)=>{
         e.preventDefault();
-        console.log(email);
+        // console.log(email);
+        fetch("http://localhost:4000/signup", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(
+        {
+          "user": {
+          username,
+          email,
+          password,
+          }
+      }
+      ),
+    })
+    .then((r) => {
+      console.log(username,email,password)
+      if (r.ok) {
+        r.json().then((user) => (user));
+        navigate('/login')
+      } else {
+          alert("Invalid Username or Password!")
+          navigate('/register')
+    }})
+
+
+
+
+
+
+
+
+
+
     }
   return (
     <div className="auth-form-container">
         <h2>Register</h2>
         <form className="register-form" onSubmit={handleSubmit}>
         <label htmlFor="name">User Name</label>
-        <input value={name} name="name" onChange={(e) => setName(e.target.value)} id="name" placeholder="full Name" />
+        <input value={username} name="name" onChange={(e) => setUsername(e.target.value)} id="name" placeholder="full Name" />
         <label htmlFor="email">email</label>
         <input value={email} onChange={(e) => setEmail(e.target.value)}type="email" placeholder="youremail@gmail.com" id="email" name="email" />
         <label htmlFor="password">password</label>
-        <input value={pass} onChange={(e) => setPass(e.target.value)} type="password" placeholder="********" id="password" name="password" />
+        <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" placeholder="********" id="password" name="password" />
         <button type="submit">Register</button>
         </form>
         <button className="link-btn" onClick={() => props.onFormSwitch('login')}>Already have an account? Login here.</button>
