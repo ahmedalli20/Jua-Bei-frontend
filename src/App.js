@@ -82,6 +82,7 @@ useEffect((() => {
          <Routes>
 
 
+
    <Route exact path='/' element={
     <div>
     <Navbar user={user} handleSearch={handleSearch} search={search} setSearch={setSearch} searchFor={searchFor}/>
@@ -98,6 +99,31 @@ useEffect((() => {
 
   </Route>
    </Routes>
+
+        <Route exact path='/' element={
+            <div>
+            <Navbar user={user} handleSearch={handleSearch} search={search} setSearch={setSearch} searchFor={searchFor}/>
+            {search || searchFor?null:<SearchPage handleSearch={handleSearch} search={search} setSearch={setSearch} />}
+
+            </div>
+        }> </Route>
+            <Route path='home' element={
+            <Home />
+        }>
+
+        </Route>
+
+        <Route path='Login' element={
+           <>
+            {
+            currentForm === "login"? <Login onFormSwitch={toggleForm} /> : <Registration onFormSwitch={toggleForm}/>
+             } 
+           </> 
+        }>      
+        </Route>
+        </Routes>
+    
+
    
    </div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
 
