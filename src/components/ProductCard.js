@@ -39,7 +39,7 @@ const ProductCard = ({product}) => {
                         <p className='product-ratings'>Rating: {product.rating ? "(" + product.rating + ")" : ""}</p>
                     </div>
                     <button className="card-btn" onClick={() => window.open(product.product_link)}>view in shop</button>
-                    {/* <button className="card-btn" onClick={() => window.open(image.url)}>View on external site</button> */}
+ 
                 </div>
             </a>
         </div>
