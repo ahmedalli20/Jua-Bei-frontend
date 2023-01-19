@@ -73,7 +73,7 @@ function App() {
         <Route path='Login' element={
            <>
             {
-                currentForm === "login"? <Login onFormSwitch={toggleForm} /> : <Registration onFormSwitch={toggleForm}/>
+            currentForm === "login"? <Login onFormSwitch={toggleForm} /> : <Registration onFormSwitch={toggleForm}/>
              } 
            </> 
         }>      
