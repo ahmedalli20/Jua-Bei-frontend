@@ -1,10 +1,12 @@
 import React from 'react';
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
-import {  useState } from 'react';
+import {  useState,useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import SearchPage from './components/SearchPage';
+import Footer from './components/Footer';
+import Products from './components/Products';
 import Login from "./components/Login";
 import Registration from "./components/Registration";
 import {  } from '@mui/icons-material';
@@ -31,7 +33,7 @@ function App() {
     e.preventDefault()
     setLoading(true)
 
-    fetch("", {
+    fetch("https://jua-bei.onrender.com/search", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -54,11 +56,36 @@ function App() {
             }
         })
 }
+
+useEffect((() => {
+
+    let t=localStorage.getItem("jwt")
+
+// fetch("https://jua-bei.onrender.com/profile", {
+//     method: "GET",
+//     headers: {
+//       "Authorization": "Bearer " + t
+//     }
+//   })
+//     .then(res => {
+//       if (res.ok) {
+//         res.json().then(setUser)
+//       } else {
+//         res.json().then(console.log)
+//       }
+//     })
+}), [token])
+
+
+
   return (
     <div className="App">
          <Routes>
 
-        <Route exact path='/search' element={
+<
+
+        Route exact path='/' element={
+
             <div>
             <Navbar user={user} handleSearch={handleSearch} search={search} setSearch={setSearch} searchFor={searchFor}/>
             {search || searchFor?null:<SearchPage handleSearch={handleSearch} search={search} setSearch={setSearch} />}
@@ -82,7 +109,9 @@ function App() {
         <Route path="/signup" element={<Registration/> } />
         </Routes>
     
-    </div>
+   
+   </div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
+
   );
 }
 
