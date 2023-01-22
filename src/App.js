@@ -98,6 +98,23 @@ useEffect((() => {
 
         </Route>
 
+   <Route exact path='/' element={
+    <div>
+    <Navbar user={user} handleSearch={handleSearch} search={search} setSearch={setSearch} searchFor={searchFor}/>
+    {search || searchFor?null:<SearchPage handleSearch={handleSearch} search={search} setSearch={setSearch} />}
+     {products ? <Products setSearchFor={setSearchFor} searchFor={searchFor} products={products} setProducts={setProducts} user={user} token={token}/> : null} 
+    <Home />
+    <Footer />
+    </div>
+   }> </Route>
+     <Route path='/home' element={
+    <Home />
+   
+  }>
+
+  </Route>
+               
+
         <Route path='/login' element={
            <>
             {
@@ -109,6 +126,7 @@ useEffect((() => {
         <Route path="/signup" element={<Registration/> } />
         </Routes>
     
+
    
    </div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
 
