@@ -5,6 +5,7 @@ import "./Login.css"
 
 function Registration(props) {
 
+    const [user, setUser] = useState("")
     const [email, setEmail]=useState("")
     const [password, setPassword]=useState("")
     const [username, setUsername]=useState("")
@@ -14,7 +15,7 @@ function Registration(props) {
     const handleSubmit=(e)=>{
         e.preventDefault();
         // console.log(email);
-        fetch("http://localhost:4000/signup", {
+        fetch("http://127.0.0.1:4000/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -32,21 +33,12 @@ function Registration(props) {
     .then((r) => {
       console.log(username,email,password)
       if (r.ok) {
-        r.json().then((user) => (user));
+        r.json().then((user) => setUser(user));
         navigate('/login')
       } else {
           alert("Invalid Username or Password!")
           navigate('/register')
     }})
-
-
-
-
-
-
-
-
-
 
     }
   return (
