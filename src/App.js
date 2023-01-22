@@ -7,6 +7,7 @@ import Home from './components/Home';
 import SearchPage from './components/SearchPage';
 import Login from "./components/Login";
 import Registration from "./components/Registration";
+import { AppRegistrationRounded } from '@mui/icons-material';
 
 
 
@@ -57,20 +58,20 @@ function App() {
     <div className="App">
          <Routes>
 
-        <Route exact path='/' element={
+        <Route exact path='/search' element={
             <div>
             <Navbar user={user} handleSearch={handleSearch} search={search} setSearch={setSearch} searchFor={searchFor}/>
             {search || searchFor?null:<SearchPage handleSearch={handleSearch} search={search} setSearch={setSearch} />}
 
             </div>
         }> </Route>
-            <Route path='home' element={
+            <Route path='/' element={
             <Home />
         }>
 
         </Route>
 
-        <Route path='Login' element={
+        <Route path='/login' element={
            <>
             {
             currentForm === "login"? <Login onFormSwitch={toggleForm} /> : <Registration onFormSwitch={toggleForm}/>
@@ -78,6 +79,7 @@ function App() {
            </> 
         }>      
         </Route>
+        <Route path="/register" element={<Registration/> } />
         </Routes>
     
     </div>
