@@ -7,7 +7,7 @@ import Home from './components/Home';
 import SearchPage from './components/SearchPage';
 import Login from "./components/Login";
 import Registration from "./components/Registration";
-import { AppRegistrationRounded } from '@mui/icons-material';
+import {  } from '@mui/icons-material';
 
 
 
@@ -79,7 +79,7 @@ function App() {
            </> 
         }>      
         </Route>
-        <Route path="/register" element={<Registration/> } />
+        <Route path="/signup" element={<Registration/> } />
         </Routes>
     
     </div>
